@@ -17,16 +17,16 @@
                 </ul>
             </nav>
         </header>
-        <h1>algunos mensajes de la gente</h1>
+        <h1>nueva pipol</h1>
         <main>
-			<% msgs.map((msg, i) => { %> 
-            <section>
-                <p><%= msg.text %></p>
-                <p><%= msg.user %></p>
-                <a href="/msg/<%= i %>">detalles</a>
-            </section>
-			<hr />
-			<% }) %>
+			<form method="POST" action="/new">
+				<label>
+					mensaje
+					<input type="text" name="msg"/>
+					<input type="text" name="user"/>
+					<button type="submit">enviar</button>
+				<label>
+			</form>
         </main>
     </body>
 </html>

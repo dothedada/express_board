@@ -17,16 +17,11 @@
                 </ul>
             </nav>
         </header>
-        <h1>algunos mensajes de la gente</h1>
         <main>
-			<% msgs.map((msg, i) => { %> 
-            <section>
-                <p><%= msg.text %></p>
-                <p><%= msg.user %></p>
-                <a href="/msg/<%= i %>">detalles</a>
-            </section>
+			<h2>El mensaje de <%= user %></h2>
+			<p><%= text %></p>
+			<p><%= added %></p>
 			<hr />
-			<% }) %>
         </main>
     </body>
 </html>

@@ -35,6 +35,10 @@ app.get('/new', (req, res) => {
     res.render('addform', {});
 });
 
+app.get('/msg/:msgId', (req, res) => {
+    res.render('msg', { ...msgs[+req.params.msgId] });
+});
+
 app.post('/new', (req, res) => {
     const newMsg = {
         text: req.body.msg,
