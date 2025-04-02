@@ -12,6 +12,7 @@ const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 
 const msgs = [
     {
@@ -27,7 +28,21 @@ const msgs = [
 ];
 
 app.get('/', (req, res) => {
-    res.render('index', { msgs }); // Pasa una copia del array
+    res.render('index', { msgs });
+});
+
+app.get('/new', (req, res) => {
+    res.render('addform', {});
+});
+
+app.post('/new', (req, res) => {
+    const newMsg = {
+        text: req.body.msg,
+        user: req.body.user,
+        added: new Date(),
+    };
+    msgs.push(newMsg);
+    res.redirect('/');
 });
 
 app.listen(PORT, () => {
