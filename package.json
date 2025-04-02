@@ -1,20 +1,30 @@
 {
-  "name": "msg_board",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dothedada/express_board.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dothedada/express_board/issues"
-  },
-  "homepage": "https://github.com/dothedada/express_board#readme",
-  "description": ""
+    "name": "msg_board",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "launch": "node --watch index.js"
+    },
+    "prettier": {
+        "useTabs": false,
+        "tabWidth": 4,
+        "singleQuote": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dothedada/express_board.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dothedada/express_board/issues"
+    },
+    "homepage": "https://github.com/dothedada/express_board#readme",
+    "description": "",
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0"
+    }
 }
