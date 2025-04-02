@@ -2,6 +2,7 @@
     "name": "msg_board",
     "version": "1.0.0",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "launch": "node --watch index.js"
     },
