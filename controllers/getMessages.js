@@ -6,6 +6,7 @@ export const getMessages = (req, res, next) => {
 };
 
 export const getMessageById = (req, res, next) => {
-    req.message = messages[req.params.msgId];
+    const id = req.params.msgId;
+    req.message = messages[id];
     next();
 };
