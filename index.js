@@ -22,6 +22,8 @@ app.use('/', mainRouter);
 app.use('/new', newRouter);
 app.use('/msg', detailRouter);
 
+app.use(express.static('static'));
+
 app.listen(PORT, () => {
-    console.log('al aire prro');
+    console.log('al aire prro', PORT);
 });

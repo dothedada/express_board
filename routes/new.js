@@ -10,6 +10,8 @@ newRouter.get('/', (req, res, next) => {
     };
     res.render('addform', data);
 });
-newRouter.post('/', setMsg);
+newRouter.post('/', setMsg, (req, res, next) => {
+    res.redirect('/');
+});
 
 export { newRouter };

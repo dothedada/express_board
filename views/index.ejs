@@ -3,7 +3,6 @@
 	<%- include("head", title)%>
     <body>
 		<%- include("header") %> 
-        <h1>algunos mensajes de la gente</h1>
         <main>
 			<% msgs.map((msg, i) => { %> 
 				<%- include("card.ejs", {msg, id: i}) %>
