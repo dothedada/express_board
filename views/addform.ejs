@@ -1,22 +1,8 @@
 <!doctype html>
 <html>
-    <head>
-        <title>a draf for msg board</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/images/favicon.png" />
-    </head>
+	<%- include("head", title) %>
     <body>
-        <header>
-            <img src="img/logo" alt="logo" />
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/new">Nuevo mensaje</a></li>
-                    <li><a href="/about">about</a></li>
-                </ul>
-            </nav>
-        </header>
+		<%- include("header") %> 
         <h1>nueva pipol</h1>
         <main>
 			<form method="POST" action="/new">

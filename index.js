@@ -28,11 +28,11 @@ const msgs = [
 ];
 
 app.get('/', (req, res) => {
-    res.render('index', { msgs });
+    res.render('index', { msgs, title: 'Ahora siiiii' });
 });
 
 app.get('/new', (req, res) => {
-    res.render('addform', {});
+    res.render('addform', { title: 'nuevo mensaje' });
 });
 
 app.get('/msg/:msgId', (req, res) => {

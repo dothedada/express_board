@@ -1,31 +1,12 @@
 <!doctype html>
 <html>
-    <head>
-        <title>a draf for msg board</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/images/favicon.png" />
-    </head>
+	<%- include("head", title)%>
     <body>
-        <header>
-            <img src="img/logo" alt="logo" />
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/new">Nuevo mensaje</a></li>
-                    <li><a href="/about">about</a></li>
-                </ul>
-            </nav>
-        </header>
+		<%- include("header") %> 
         <h1>algunos mensajes de la gente</h1>
         <main>
 			<% msgs.map((msg, i) => { %> 
-            <section>
-                <p><%= msg.text %></p>
-                <p><%= msg.user %></p>
-                <a href="/msg/<%= i %>">detalles</a>
-            </section>
-			<hr />
+				<%- include("card.ejs", {msg, id: i}) %>
 			<% }) %>
         </main>
     </body>
