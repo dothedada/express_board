@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import url from 'url';
 import path from 'path';
 
+import { mainRouter } from './routes/main.js';
+import { newRouter } from './routes/new.js';
+import { detailRouter } from './routes/detail.js';
+
 dotenv.config();
 
 const PORT = process.env.PORT;
@@ -14,40 +18,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
-const msgs = [
-    {
-        text: 'Hola hola carebola',
-        user: 'mmejia',
-        added: new Date(),
-    },
-    {
-        text: 'Que se narra la mojarra',
-        user: 'Lucy',
-        added: new Date(),
-    },
-];
-
-app.get('/', (req, res) => {
-    res.render('index', { msgs, title: 'Ahora siiiii' });
-});
-
-app.get('/new', (req, res) => {
-    res.render('addform', { title: 'nuevo mensaje' });
-});
-
-app.get('/msg/:msgId', (req, res) => {
-    res.render('msg', { ...msgs[+req.params.msgId] });
-});
-
-app.post('/new', (req, res) => {
-    const newMsg = {
-        text: req.body.msg,
-        user: req.body.user,
-        added: new Date(),
-    };
-    msgs.push(newMsg);
-    res.redirect('/');
-});
+app.use('/', mainRouter);
+app.use('/new', newRouter);
+app.use('/msg', detailRouter);
 
 app.listen(PORT, () => {
     console.log('al aire prro');
