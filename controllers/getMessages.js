@@ -1,7 +1,9 @@
 import { messages } from '../model/messages.js';
 
 export const getMessages = (req, res, next) => {
-    req.messages = messages;
+    req.messages = messages.sort(
+        (a, b) => new Date(b.added) - new Date(a.added),
+    );
     next();
 };
 
