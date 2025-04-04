@@ -4,10 +4,10 @@
     <body>
 		<%- include("header") %> 
         <main>
-			<h2><%= user %></h2>
-			<p><%= text %></p>
-			<p><%= added %></p>
-			<hr />
+			<div class="single_msg">
+				<p class="msg"><%= text %></p>
+				<p class="date"><%= added %></p>
+			</div>
         </main>
     </body>
 </html>

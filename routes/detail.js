@@ -7,7 +7,7 @@ detailRouter.get('/:msgId', getMessageById, (req, res) => {
     const data = {
         ...req.message,
         title: 'De a un prro',
-        heading: 'Este es el mensaje',
+        heading: `el mensaje de ${req.message.user}`,
     };
 
     res.render('msg', data);
