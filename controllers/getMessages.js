@@ -9,8 +9,8 @@ export const getMessages = async (_, res, next) => {
 
 export const getMessageById = async (req, res, next) => {
     const id = req.params.msgId;
-    const message = messageById_query(id);
-    res.messages = message;
+    const message = await messageById_query(id);
+    res.messages = message[0];
 
     next();
 };

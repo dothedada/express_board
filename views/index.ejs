@@ -4,8 +4,8 @@
     <body>
 		<%- include("header") %> 
         <main>
-			<% msgs.map((msg, i) => { %> 
-				<%- include("card.ejs", {msg, id: i}) %>
+			<% messages.map((msg) => { %> 
+				<%- include("card.ejs", { msg }) %>
 			<% }) %>
         </main>
     </body>

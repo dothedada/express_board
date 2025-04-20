@@ -16,11 +16,14 @@ const messageById_query = async (id) => {
     return rows;
 };
 
-const addMessage_query = async ({ msg, username, date }) => {
-    await newPool.query(
-        'INSERT INTO messages (msg, username, date) VALUES ($1, $2, $3)',
-        [msg, username, date],
+const addMessage_query = async ({ text, user, added }) => {
+    console.log(text, user, added);
+    const query = await newPool.query(
+        'INSERT INTO messages (msg, username, date) VALUES ($1, $2, $3) RETURNING *',
+        [text, user, added],
     );
+
+    return query;
 };
 
 const deleteMessage_query = async (id) => {

@@ -1,4 +1,4 @@
-import { deleteMessage_query } from '../model/query';
+import { deleteMessage_query } from '../model/query.js';
 
 export const delMessage = async (req, _, next) => {
     const { id } = req.body;
