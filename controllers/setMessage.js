@@ -1,12 +1,12 @@
-import { messages } from '../model/messages.js';
+import { addMessage_query } from '../model/query';
 
-export const setMsg = (req, res, next) => {
+export const setMsg = async (req, _, next) => {
     const newMsg = {
         text: req.body.msg,
         user: req.body.user,
         added: new Date(),
     };
 
-    messages.push(newMsg);
+    await addMessage_query(newMsg);
     next();
 };

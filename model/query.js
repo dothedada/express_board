@@ -1,13 +1,13 @@
 import { newPool } from './pool.cjs';
 
-const getMessages = async () => {
+const allMessages_query = async () => {
     const { rows } = await newPool.query(
         'SELECT * FROM messages ORDER BY date DESC',
     );
     return rows;
 };
 
-const getMessageById = async (id) => {
+const messageById_query = async (id) => {
     const { rows } = await newPool.query(
         'SELECT * FROM messages WHERE id = $1',
         [id],
@@ -16,15 +16,20 @@ const getMessageById = async (id) => {
     return rows;
 };
 
-const addMessage = async ({ msg, username }) => {
+const addMessage_query = async ({ msg, username, date }) => {
     await newPool.query(
         'INSERT INTO messages (msg, username, date) VALUES ($1, $2, $3)',
-        [msg, username, new Date()],
+        [msg, username, date],
     );
 };
 
-const deleteMessage = async (id) => {
+const deleteMessage_query = async (id) => {
     await newPool.query('DELETE FROM messages WHERE id = $1', [id]);
 };
 
-export { getMessages, getMessageById, addMessage, deleteMessage };
+export {
+    allMessages_query,
+    messageById_query,
+    addMessage_query,
+    deleteMessage_query,
+};

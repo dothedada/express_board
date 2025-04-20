@@ -1,14 +1,16 @@
-import { messages } from '../model/messages.js';
+import { allMessages_query, messageById_query } from '../model/query.js';
 
-export const getMessages = (req, res, next) => {
-    req.messages = messages.sort(
-        (a, b) => new Date(b.added) - new Date(a.added),
-    );
+export const getMessages = async (_, res, next) => {
+    const messages = await allMessages_query();
+    res.messages = messages;
+
     next();
 };
 
-export const getMessageById = (req, res, next) => {
+export const getMessageById = async (req, res, next) => {
     const id = req.params.msgId;
-    req.message = messages[id];
+    const message = messageById_query(id);
+    res.messages = message;
+
     next();
 };
