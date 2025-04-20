@@ -4,7 +4,9 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "launch": "node --watch index.js"
+        "launch": "node --watch index.js",
+        "dev": "ENV=dev node --watch index.js",
+        "populate_db": "node model/populatedb.cjs"
     },
     "prettier": {
         "useTabs": false,

@@ -7,7 +7,6 @@ export const setMsg = async (req, _, next) => {
         added: new Date(),
     };
 
-    console.log(newMsg);
     await addMessage_query(newMsg);
     next();
 };

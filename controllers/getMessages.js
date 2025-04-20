@@ -8,8 +8,7 @@ export const getMessages = async (_, res, next) => {
 };
 
 export const getMessageById = async (req, res, next) => {
-    const id = req.params.msgId;
-    const message = await messageById_query(id);
+    const message = await messageById_query(req.userID);
     res.messages = message[0];
 
     next();

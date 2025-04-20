@@ -6,6 +6,8 @@ import path from 'path';
 import { mainRouter } from './routes/main.js';
 import { newRouter } from './routes/new.js';
 import { detailRouter } from './routes/detail.js';
+import { deleteRouter } from './routes/delete.js';
+import { getId } from './middleware/getId.js';
 
 dotenv.config();
 
@@ -20,7 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', mainRouter);
 app.use('/new', newRouter);
-app.use('/msg', detailRouter);
+app.use('/:id/msg', getId, detailRouter);
+app.use('/:id/delete', getId, deleteRouter);
 
 app.use(express.static('static'));
 
